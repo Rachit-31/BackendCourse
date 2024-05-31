@@ -1,11 +1,11 @@
-// const asyncHandler=(requestHandler)=>{
+const asyncHandler=(requestHandler)=>{
 // // we can do by try catch or by USING PROMISES
-//     (req,res,next)=>{
-//         Promise.resolve().catch((err)=>)
-//     }
-// }
-// export default asyncHandler
-// 32:33
+    (req,res,next)=>{
+        Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
+    }
+}
+export default asyncHandler
+
 
 
 
@@ -15,7 +15,7 @@
 // BELOW IS WRAPPER FUNCTION WHICH WE WILL USE EVERY WHERE
 /* const asyncHandler=(func)=>async(req,res,next)=>{
     try{
-        await fnc(req,res,next)
+        await func(req,res,next)
     }
     catch(error){
         res.status(err.code || 500).json({
