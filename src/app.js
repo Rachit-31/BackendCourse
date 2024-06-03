@@ -14,4 +14,12 @@ app.use(express.urlencoded({extended:true,limit:"16kb"})) //for handling of url
 app.use(express.static("public")) //for storing static files jo hm server pr store karana chahte hai like images
 app.use(cookieParser())
 
+
+// import routes
+import userRouter from './routes/user.routes.js'
+
+// routes declare
+// now to get routes we will use middleware i.e use method
+app.use("/api/v1/users",userRouter) //http:localhost:8000/users/register
+
 export default app;
