@@ -6,6 +6,7 @@ const router=Router();
 
 router.route("/register").post(
     upload.fields([
+        //below is a middleware
         {
             name:"avatar",
             maxCount:1
