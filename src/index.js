@@ -4,7 +4,7 @@ import connectDB from "./db/connectTomongoDb.js";
 import app from "./app.js";
 
 dotenv.config({
-    path:'./env'
+    path:'./.env'
 })
 app.get('/',(req,res)=>{
     res.send("hello");
